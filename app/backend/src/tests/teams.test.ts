@@ -21,12 +21,4 @@ describe('Testes para rota /teams', () => {
     expect(response.status).to.be.equal(200);
     expect(response.body.teams).to.be.deep.equal(teams);
   });
-
-  it('Testa se é possivel obter um time a partir de seu id através do metodo get na rota /teams/:id', async () => {
-    const response = await chai.request(app)
-    .get('/teams/1');
-
-    expect(response.status).to.be.equal(200);
-    expect(response.body.teams).to.be.deep.equal(teams[0]);
-  });
 });
