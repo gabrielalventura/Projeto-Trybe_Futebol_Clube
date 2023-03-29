@@ -5,7 +5,7 @@ FROM node:16.14-alpine
 WORKDIR /app-frontend
 
 # Copiar os package.json e package-lock.json para o container
-COPY /package*.json ./
+COPY package*.json ./
 
 # Instalar as dependências Node
 RUN npm install
@@ -18,5 +18,7 @@ EXPOSE 3000
 
 # Configurar os comandos para iniciar a aplicação de acordo com as boas práticas
 ENTRYPOINT ["npm", "start"]
+
+# CMD ["start"]
 # Dica: Leia a seção Docker e Docker-compose no README para mais informações
 # Referencia para montagem do Dockerfile - Projeto ToDoList - disponivel em: https://github.com/gabrielalventura/Projeto-ToDoList/blob/main/docker/todo-app/front-end/Dockerfile
