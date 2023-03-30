@@ -13,8 +13,9 @@ class ControllerTeams {
     res.status(200).json(teams);
   }
 
-  async getById(_req: Request, res: Response): Promise<void> {
-    const team = await this.service.getById();
+  async getById(req: Request, res: Response): Promise<void> {
+    const { id } = req.params;
+    const team = await this.service.getById(id);
     res.status(200).json(team);
   }
 }
