@@ -8,7 +8,7 @@ class ControllerLogin {
     this.service = new ServiceLogin();
   }
 
-  async postLogin(req: Request, res: Response) {
+  async toLogin(req: Request, res: Response): Promise<Response> {
     const { email, password } = req.body;
     const user = await this.service.login(email, password);
 

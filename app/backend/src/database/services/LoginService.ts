@@ -15,7 +15,7 @@ class ServiceLogin {
     const lPassword = brcrypt.compareSync(password, logged.dataValues.password);
     if (lPassword) {
       const token = userToken(logged);
-      return token;
+      return { lPassword, token };
     }
   }
 }
