@@ -1,5 +1,4 @@
 import { ModelStatic } from 'sequelize';
-import ITeams from '../../interfaces/ITeams';
 import Teams from '../models/TeamsModel';
 
 class ServiceTeams {
@@ -9,10 +8,12 @@ class ServiceTeams {
     this.model = model;
   }
 
-  async getall(): Promise<ITeams[]> {
+  async getAll(): Promise<Teams[]> {
     const teams = await this.model.findAll();
     return teams;
   }
 }
 
 export default ServiceTeams;
+
+// desenvolvido com auxilio do Breno Lavalle, Lígia Bicalho e Maria Luiza Suhadolnik e também da documentação disponivel em: https://sequelize.org/docs/v6/other-topics/typescript/#requesting-a-model-class;
