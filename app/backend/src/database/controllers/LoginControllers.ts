@@ -15,6 +15,11 @@ class ControllerLogin {
     if (user) {
       return res.status(200).json(user);
     }
+
+    if (!email || !password) {
+      return res.status(400).json({ message: 'All fields must be filled' });
+    }
+
     return res.status(401).json({ message: 'Invalid email or password' });
   }
 }
