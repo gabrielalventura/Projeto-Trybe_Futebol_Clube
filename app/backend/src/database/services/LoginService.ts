@@ -1,6 +1,7 @@
 import { ModelStatic } from 'sequelize';
 import * as brcrypt from 'bcryptjs';
 import Users from '../models/UsersModel';
+import { userToken } from '../../authFunctions/authFunction';
 
 class ServiceLogin {
   model: ModelStatic<Users> = Users;
@@ -9,10 +10,13 @@ class ServiceLogin {
     const logged = await this.model.findOne({ where: { email } });
     // trecho de código semelhante ao projeto BLOGS API
     if (!logged) {
-      return 'Invalid user';
+      return null;
     }
-    const lPassword = await brcrypt.compareSync(password, logged.dataValues.password);
-    return lPassword;
+    const lPassword = brcrypt.compareSync(password, logged.dataValues.password);
+    if (lPassword) {
+      const token = userToken(logged);
+      return token;
+    }
   }
 }
 

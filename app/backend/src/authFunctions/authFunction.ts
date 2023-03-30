@@ -7,15 +7,15 @@ const JWT_CONFIG: jwt.SignOptions = {
   expiresIn: '2d',
 };
 
-function token(email: string): string {
-  return jwt.sign({ data: { email } }, secret, JWT_CONFIG);
+function userToken(data: object): string {
+  return jwt.sign({ data }, secret, JWT_CONFIG);
 }
 
 function verifyToken(tokenL: string) {
   const reverse = jwt.verify(tokenL, secret);
   return reverse;
 }
-export ={
-  token,
+export {
+  userToken,
   verifyToken,
 };
