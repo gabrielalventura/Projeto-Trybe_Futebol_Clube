@@ -7,9 +7,9 @@ const validatePassword = async (req: Request, res: Response, next: NextFunction)
     return res.status(401).json({ message: 'Invalid email or password' });
   }
 
-  if (!password) {
-    return res.status(400).json({ message: 'All the fields must be filled' });
-  }
+  // if (!password) {
+  //   return res.status(400).json({ message: 'All the fields must be filled' });
+  // }
 
   return next();
 };
