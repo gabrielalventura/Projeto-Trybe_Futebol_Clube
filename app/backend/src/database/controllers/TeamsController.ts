@@ -1,12 +1,11 @@
 import { Request, Response } from 'express';
-import Teams from '../models/TeamsModel';
 import ServiceTeams from '../services/TeamsService';
 
 class ControllerTeams {
   service: ServiceTeams;
 
   constructor() {
-    this.service = new ServiceTeams(Teams);
+    this.service = new ServiceTeams();
   }
 
   async getAll(_req: Request, res: Response): Promise<void> {
@@ -16,5 +15,3 @@ class ControllerTeams {
 }
 
 export default ControllerTeams;
-
-// Mateus Ramos deu a dica do service precisar do model como argumento;

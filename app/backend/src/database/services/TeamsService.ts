@@ -4,10 +4,6 @@ import Teams from '../models/TeamsModel';
 class ServiceTeams {
   model: ModelStatic<Teams> = Teams;
 
-  constructor(model: ModelStatic<Teams>) {
-    this.model = model;
-  }
-
   async getAll(): Promise<Teams[]> {
     const teams = await this.model.findAll();
     return teams;
