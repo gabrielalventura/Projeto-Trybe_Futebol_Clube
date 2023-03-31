@@ -19,16 +19,16 @@ class ServiceLogin {
     }
   }
 
-  async getRole(email: string) {
-    const logged = await this.model.findOne({ where: { email } });
+  // async getRole(email: string) {
+  //   const logged = await this.model.findOne({ where: { email } });
 
-    if (logged === null) {
-      return null;
-    } // necessário pois logged pode ser null
+  //   if (logged === null) {
+  //     return null;
+  //   } // necessário pois logged pode ser null
 
-    const { role } = logged.dataValues;
-    return role;
-  }
+  //   const { role } = logged.dataValues;
+  //   return role;
+  // }
 }
 
 export default ServiceLogin;

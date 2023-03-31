@@ -1,0 +1,5 @@
+const token = {
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoyLCJ1c2VybmFtZSI6IlVzZXIiLCJyb2xlIjoidXNlciIsImVtYWlsIjoidXNlckB1c2VyLmNvbSIsInBhc3N3b3JkIjoiJDJhJDA4JFk4QWJpOGpYdnNYeXFtLnJtcDBCLnVRQkE1cVV6N1Q2R2hsZy9DdlZyL2dMeFlqNVVBWlZPIn0sImlhdCI6MTY4MDI5Mzg5MCwiZXhwIjoxNjgwNDY2NjkwfQ.1uX9hD0M_49XrZa9wMzFC71qr88Pylus5N7B2QocEY0"
+};
+
+export default token;

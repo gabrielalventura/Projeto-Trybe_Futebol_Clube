@@ -1,4 +1,4 @@
-// import * as sinon from 'sinon';
+import * as sinon from 'sinon';
 import * as chai from 'chai';
 // @ts-ignore
 import chaiHttp = require('chai-http');
@@ -19,6 +19,17 @@ describe('Testes para rota /teams', () => {
     .get('/teams');
 
     expect(response.status).to.be.equal(200);
-    expect(response.body.teams).to.be.deep.equal(teams);
+    expect(response.body).to.be.deep.equal(teams);
+  });
+
+  it('Testa se é possivel obter 1 time a partir do id na rota /teams/id', async () => {
+    const response = await chai.request(app).get('/teams/1');
+
+    expect(response.status).to.be.equal(200);
+    expect(response.body).to.be.deep.equal(teams[0]);
+  })
+
+  afterEach(function () {
+    sinon.restore();
   });
 });
