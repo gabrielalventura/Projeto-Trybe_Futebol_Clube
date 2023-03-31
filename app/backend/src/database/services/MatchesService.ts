@@ -16,7 +16,7 @@ class ServiceMatches {
         },
         {
           model: this.teams,
-          as: 'awayMatch',
+          as: 'awayTeam',
           attributes: { exclude: ['id'] },
         },
       ],

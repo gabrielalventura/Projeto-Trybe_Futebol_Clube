@@ -8,7 +8,7 @@ class ControllerMatches {
     this.service = new ServiceMatches();
   }
 
-  async getAll(_req: Request, res: Response): Promise<void> {
+  async getAll(_req: Request, res: Response) {
     const matches = await this.service.getAll();
     res.status(200).json(matches);
   }
