@@ -22,6 +22,17 @@ describe('Testes para rota /login', () => {
     expect(response.body).to.be.deep.equal(token);
   });
 
+  it('Testa se /login não permite informações em branco', async () => {
+    const response = await chai.request(app)
+    .post('/login').send({
+      email: "",
+      password: "",
+    })
+
+    expect(response.status).to.equal(400);
+    expect(response.body).to.be.deep.equal({ message: 'All fields must be filled' })
+  })
+
   afterEach(function () {
     sinon.restore();
   });
