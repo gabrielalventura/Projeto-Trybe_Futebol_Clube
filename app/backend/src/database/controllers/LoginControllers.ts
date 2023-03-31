@@ -24,8 +24,8 @@ class ControllerLogin {
   }
 
   async getRole(req: Request, res: Response) {
-    const { email } = req.body.user;
-    const role = await this.service.getRole(email);
+    const user = req.body.data;
+    const role = await this.service.getRole(user.email);
 
     return res.status(200).json({ role });
   }
