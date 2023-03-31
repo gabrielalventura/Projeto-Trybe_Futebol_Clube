@@ -10,4 +10,8 @@ loginRouter.post('/', validateEmail, validatePassword, (req, res) => {
   controller.toLogin(req, res);
 });
 
+loginRouter.get('/role', (req, res) => {
+  controller.getRole(req, res);
+});
+
 export default loginRouter;
