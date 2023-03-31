@@ -11,12 +11,12 @@ class ServiceMatches {
       include: [
         {
           model: this.teams,
-          as: 'matchesAway',
+          as: 'homeTeam',
           attributes: { exclude: ['id'] },
         },
         {
           model: this.teams,
-          as: 'homeTeam',
+          as: 'awayMatch',
           attributes: { exclude: ['id'] },
         },
       ],
