@@ -18,6 +18,17 @@ class ServiceLogin {
       return { lPassword, token };
     }
   }
+
+  async getRole(email: string) {
+    const logged = await this.model.findOne({ where: { email } });
+
+    if (logged === null) {
+      return null;
+    } // necessário pois logged pode ser null
+
+    const { role } = logged.dataValues;
+    return role;
+  }
 }
 
 export default ServiceLogin;
