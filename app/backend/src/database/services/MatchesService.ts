@@ -23,6 +23,26 @@ class ServiceMatches {
     });
     return matches;
   }
+
+  async getByInProgress(inProgress: string): Promise<Matches[]> {
+    const iPMatches = await this.model.findAll({
+      where: { inProgress: JSON.parse(inProgress.toLowerCase()) },
+
+      include: [
+        {
+          model: this.teams,
+          as: 'homeTeam',
+          attributes: { exclude: ['id'] },
+        },
+        {
+          model: this.teams,
+          as: 'awayTeam',
+          attributes: { exclude: ['id'] },
+        },
+      ],
+    });
+    return iPMatches;
+  }
 }
 
 export default ServiceMatches;
