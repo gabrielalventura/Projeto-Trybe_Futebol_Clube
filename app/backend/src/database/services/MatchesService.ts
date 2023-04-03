@@ -12,12 +12,12 @@ class ServiceMatches {
         {
           model: this.teams,
           as: 'homeTeam',
-          attributes: { exclude: ['id'] },
+          attributes: ['teamName'],
         },
         {
           model: this.teams,
           as: 'awayTeam',
-          attributes: { exclude: ['id'] },
+          attributes: ['teamName'],
         },
       ],
     });
@@ -32,17 +32,19 @@ class ServiceMatches {
         {
           model: this.teams,
           as: 'homeTeam',
-          attributes: { exclude: ['id'] },
+          attributes: ['teamName'],
         },
         {
           model: this.teams,
           as: 'awayTeam',
-          attributes: { exclude: ['id'] },
+          attributes: ['teamName'],
         },
       ],
     });
     return iPMatches;
   }
 }
+
+// uma vez que a tabela Teams só possui dois atributos, id e teamName, tanto faz utilizar o atributo direto ou excluir o atributo que não se deseja, mas em casos de tabelas maiores, optar pelo exclude para redução de poluição no código
 
 export default ServiceMatches;
