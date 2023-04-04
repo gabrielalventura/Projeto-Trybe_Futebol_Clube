@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import ServiceLogin from '../services/LoginService';
-// import IReqRole from '../../interfaces/IReqRole';
+import IReqRole from '../../interfaces/IReqRole';
 
 class ControllerLogin {
   service: ServiceLogin;
@@ -24,12 +24,17 @@ class ControllerLogin {
     return res.status(401).json({ message: 'Invalid email or password' });
   }
 
-  // async getRole(req: IReqRole, res: Response) {
-  //   const email = req.email as string;
-  //   const role = await this.service.getRole(email);
+  async getRole(req: IReqRole, res: Response) {
+    const { email } = req.body.logged.data;
+    console.log(email);
 
-  //   return res.status(200).json({ role });
-  // }
+    if (email) {
+      const role = await this.service.getRole(email);
+      return res.status(200).json(role);
+    }
+
+    return res.status(400).json('Invalid user');
+  }
 }
 
 export default ControllerLogin;

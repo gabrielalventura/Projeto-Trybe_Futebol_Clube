@@ -2,6 +2,7 @@ import { ModelStatic } from 'sequelize';
 import * as brcrypt from 'bcryptjs';
 import Users from '../models/UsersModel';
 import { userToken } from '../../authFunctions/authFunction';
+import IReqRole from '../../interfaces/IReqRole';
 
 class ServiceLogin {
   model: ModelStatic<Users> = Users;
@@ -19,16 +20,17 @@ class ServiceLogin {
     }
   }
 
-  // async getRole(email: string) {
-  //   const logged = await this.model.findOne({ where: { email } });
+  async getRole(email: IReqRole) {
+    const logged = await this.model.findOne({ where: { email },
+      attributes: ['role'],
+    });
 
-  //   if (logged === null) {
-  //     return null;
-  //   } // necessário pois logged pode ser null
+    if (logged === null) {
+      return null;
+    } // necessário pois logged pode ser null
 
-  //   const { role } = logged.dataValues;
-  //   return role;
-  // }
+    return logged;
+  }
 }
 
 export default ServiceLogin;
