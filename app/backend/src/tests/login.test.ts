@@ -33,6 +33,17 @@ describe('Testes para rota /login', () => {
     expect(response.body).to.be.deep.equal({ message: 'All fields must be filled' })
   })
 
+  it('Testa se /login não permite informações erradas', async () => {
+    const response = await chai.request(app)
+    .post('/login').send({
+      email: "emailemail",
+      password: "12345",
+    })
+
+    expect(response.status).to.equal(401);
+    expect(response.body).to.be.deep.equal({ message: 'Invalid email or password' })
+  })
+
   afterEach(function () {
     sinon.restore();
   });
