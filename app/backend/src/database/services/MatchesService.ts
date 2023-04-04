@@ -51,6 +51,15 @@ class ServiceMatches {
     );
     return match;
   }
+
+  async updateById(id: string, scoreA: string, scoreB: string) {
+    const updatedMatch = await this.model.update(
+      { homeTeamGoals: scoreA,
+        awayTeamGoals: scoreB },
+      { where: { id } },
+    );
+    return updatedMatch;
+  }
 }
 
 // uma vez que a tabela Teams só possui dois atributos, id e teamName, tanto faz utilizar o atributo direto ou excluir o atributo que não se deseja, mas em casos de tabelas maiores, optar pelo exclude para redução de poluição no código
