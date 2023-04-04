@@ -26,6 +26,15 @@ class ControllerMatches {
 
     return res.status(200).json({ message: 'Finished' });
   }
+
+  async updateById(req: Request, res: Response): Promise<Response> {
+    const { id } = req.params;
+    const { homeTeamGoals, awayTeamGoals } = req.body;
+
+    const updatedMatch = await this.service.updateById(id, homeTeamGoals, awayTeamGoals);
+
+    return res.status(200).json({ message: updatedMatch });
+  }
 }
 
 export default ControllerMatches;
