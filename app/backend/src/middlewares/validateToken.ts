@@ -16,4 +16,6 @@ const validateToken = (req: Request, res: Response, next: NextFunction) => {
   }
 };
 
+// Função desenvolvida com base na mentoria 9.4 JWT com Typescript e com a ajuda do Breno Lavalle;
+
 export default validateToken;

@@ -26,7 +26,7 @@ class ControllerLogin {
 
   async getRole(req: IReqRole, res: Response) {
     const { email } = req.body.logged.data;
-    console.log(email);
+    console.log(email); // no retorno quando email fora do objeto, devolvia todas as informações do usuario logado.
 
     if (email) {
       const role = await this.service.getRole(email);
@@ -36,5 +36,7 @@ class ControllerLogin {
     return res.status(400).json('Invalid user');
   }
 }
+
+// requisito desenvolvido através de debates e com ajuda de Maria Luiza Suhadolnik e Breno Lavalle;
 
 export default ControllerLogin;
