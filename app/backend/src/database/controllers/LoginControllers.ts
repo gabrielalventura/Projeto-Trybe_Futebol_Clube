@@ -26,7 +26,7 @@ class ControllerLogin {
 
   async getRole(req: IReqRole, res: Response) {
     const { email } = req.body.logged.data;
-    console.log(email); // no retorno quando email fora do objeto, devolvia todas as informações do usuario logado.
+    // console.log(email); // no retorno quando email fora do objeto, devolvia todas as informações do usuario logado.
 
     if (email) {
       const role = await this.service.getRole(email);
