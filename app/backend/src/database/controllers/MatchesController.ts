@@ -18,6 +18,14 @@ class ControllerMatches {
     res.status(200).json(matches);
     // mantem trecho de código que retorna todos os matches feito no requisito anterior, caso não haja a chamada da querystring, a resposta deve ser todos sem filtro;
   }
+
+  async finishById(req: Request, res: Response) {
+    const { id } = req.params;
+
+    await this.service.finishById(id); // como não preciso retornar a partida em lugar nenhum do código, não é necessário armazena-lá em uma constante;
+
+    return res.status(200).json({ message: 'Finished' });
+  }
 }
 
 export default ControllerMatches;

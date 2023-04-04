@@ -44,7 +44,7 @@ class ServiceMatches {
     return iPMatches;
   }
 
-  async updateById(id: number) {
+  async finishById(id: string) {
     const match = await this.model.update(
       { inProgress: false },
       { where: { id } },
