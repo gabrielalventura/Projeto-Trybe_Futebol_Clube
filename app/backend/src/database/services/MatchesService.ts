@@ -1,6 +1,7 @@
 import { ModelStatic } from 'sequelize';
 import Matches from '../models/MatchesModel';
 import Teams from '../models/TeamsModel';
+import INewMatch from '../../interfaces/INewMatch';
 
 class ServiceMatches {
   model: ModelStatic<Matches> = Matches;
@@ -59,6 +60,13 @@ class ServiceMatches {
       { where: { id } },
     );
     return updatedMatch;
+  }
+
+  async createMatches(match: INewMatch) {
+    const cadastredMatch = await this.model.create({
+      ...match, inProgress: true,
+    });
+    return cadastredMatch;
   }
 }
 
