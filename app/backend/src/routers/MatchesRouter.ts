@@ -9,6 +9,10 @@ matchesRouter.get('/', (req, res) => {
   controller.getAll(req, res);
 });
 
+matchesRouter.post('/', validateToken, (req, res) => {
+  controller.createMatch(req, res);
+});
+
 matchesRouter.patch('/:id', validateToken, (req, res) => {
   controller.updateById(req, res);
 });
