@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import ServiceMatches from '../services/MatchesService';
+import INewMatch from '../../interfaces/INewMatch';
 
 class ControllerMatches {
   service: ServiceMatches;
@@ -36,10 +37,16 @@ class ControllerMatches {
     return res.status(200).json({ message: updatedMatch });
   }
 
-  // async createMatch(req: Request, res: Response){
-  //   const match = req.body;
-  //   const
-  // }
+  async createMatch(req: Request, res: Response) {
+    const match: INewMatch = req.body;
+    const cadastred = await this.service.createMatches(match);
+
+    if (match.homeTeamId === match.awayTeamId) {
+      return res.status(422)
+        .json({ message: 'It is not possible to create a match with two equal teams' });
+    }
+    return res.status(201).json(cadastred);
+  }
 }
 
 export default ControllerMatches;
