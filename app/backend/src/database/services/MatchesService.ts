@@ -63,6 +63,12 @@ class ServiceMatches {
   }
 
   async createMatches(match: INewMatch) {
+    const eHomeTeam = await Teams.findByPk(match.homeTeamId);
+    const eAwayTeam = await Teams.findByPk(match.awayTeamId);
+
+    if (!eHomeTeam || !eAwayTeam) {
+      return { status: 404, message: 'There is no team with such id!' };
+    }
     const cadastredMatch = await this.model.create({
       ...match, inProgress: true,
     });

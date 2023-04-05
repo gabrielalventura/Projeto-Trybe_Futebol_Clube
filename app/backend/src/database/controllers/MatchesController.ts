@@ -35,6 +35,11 @@ class ControllerMatches {
 
     return res.status(200).json({ message: updatedMatch });
   }
+
+  // async createMatch(req: Request, res: Response){
+  //   const match = req.body;
+  //   const
+  // }
 }
 
 export default ControllerMatches;
