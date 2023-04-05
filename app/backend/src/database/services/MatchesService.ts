@@ -63,13 +63,6 @@ class ServiceMatches {
   }
 
   async createMatches(match: INewMatch) {
-    // const eHomeTeam = await Teams.findByPk(match.homeTeamId);
-    // const eAwayTeam = await Teams.findByPk(match.awayTeamId);
-
-    // if (!eHomeTeam || !eAwayTeam) {
-    //   const exist = false;
-    //   return exist;
-    // }
     const cadastredMatch = await this.model.create({
       ...match, inProgress: true,
     });

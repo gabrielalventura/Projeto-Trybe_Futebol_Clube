@@ -2,6 +2,7 @@ import * as express from 'express';
 import loginRouter from './routers/LoginRouter';
 import teamsRouter from './routers/TeamRouter';
 import matchesRouter from './routers/MatchesRouter';
+import 'express-async-errors';
 
 class App {
   public app: express.Express;
