@@ -5,6 +5,8 @@ import chaiHttp = require('chai-http');
 
 import { app } from '../app';
 import matches from './mocks/matchesMock';
+// import inProgress from './mocks/inProgressMock';
+import finished from './mocks/finishedMatchesMock';
 // import Teams from '../database/models/TeamsModel';
 
 // import { Response } from 'superagent';
@@ -21,6 +23,13 @@ describe('Testes para rota /teams', () => {
     expect(response.status).to.be.equal(200);
     expect(response.body).to.be.deep.equal(matches);
   });
+
+  it('Testa se é exibe somente partidas finalizadas através da rota /matches?inProgress=false', async () => {
+    const response = await chai.request(app).get('/matches?inProgress=false');
+
+    expect(response.status).to.be.equal(200);
+    expect(response.body).to.be.deep.equal(finished);
+  })
 
 
   afterEach(function () {
