@@ -4,7 +4,7 @@ import IMountLeaderBoard from '../../interfaces/IMountLeaderBoard';
 import homeLeaderBoard from '../utils/HomeQuery';
 
 class ServiceLeaderBoard {
-  db: Sequelize = db;
+  db: Sequelize = db; // usar o db foi uma dica da Ligia Bicalho;
 
   async getHome(): Promise<IMountLeaderBoard[]> {
     const [homeBoard] = await this.db.query(homeLeaderBoard);
