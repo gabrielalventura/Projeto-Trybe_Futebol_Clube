@@ -8,4 +8,8 @@ LBRouter.get('/home', (req, res) => {
   controller.getHome(req, res);
 });
 
+LBRouter.get('/away', (req, res) => {
+  controller.getHome(req, res);
+});
+
 export default LBRouter;
