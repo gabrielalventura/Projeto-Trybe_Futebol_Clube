@@ -10,6 +10,11 @@ class ServiceLeaderBoard {
     const [homeBoard] = await this.db.query(homeLeaderBoard);
     return homeBoard as IMountLeaderBoard[];
   }
+
+  async getAway(): Promise<IMountLeaderBoard[]> {
+    const [awayBoard] = await this.db.query(homeLeaderBoard);
+    return awayBoard as IMountLeaderBoard[];
+  }
 }
 
 export default ServiceLeaderBoard;
