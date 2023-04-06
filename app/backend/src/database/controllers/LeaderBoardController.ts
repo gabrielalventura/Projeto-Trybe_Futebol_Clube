@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import ServiceLeaderBoard from '../services/LeaderBoardService';
 
-class LeaderBoardController {
+class ControllerLB {
   service:ServiceLeaderBoard;
 
   constructor() {
@@ -14,4 +14,4 @@ class LeaderBoardController {
   }
 }
 
-export default LeaderBoardController;
+export default ControllerLB;
